@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:id="@+id/coordinatorLayout"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <Button
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:id="@+id/roll_button"
+                android:text="@string/roll_label"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/guideline"/>
+
+        <Button
+                android:text="Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/button1"
+                android:onClick="outInConsole"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/clearBtn"/>
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:id="@+id/textConsole" android:layout_marginStart="8dp"
+                app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp" app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="@+id/guideline"
+                android:background="@color/greynsea"/>
+        <android.support.constraint.Guideline
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" app:layout_constraintGuide_begin="605dp"
+                android:id="@+id/guideline" app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="126dp"/>
+        <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" app:srcCompat="@android:drawable/ic_input_delete"
+                android:id="@+id/clearBtn" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+                android:onClick="clearConsole"
+                android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/guideline"/>
+        <ImageView
+                android:textSize="30sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/empty_dice"
+                tools:src="@drawable/dice_1"
+                android:id="@+id/dice_image" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/guideline"
+                android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"/>
+        <ImageView
+                android:textSize="30sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/empty_dice"
+                tools:src="@drawable/dice_1"
+                android:id="@+id/dice_image2"
+                android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toTopOf="parent"/>
+    </android.support.constraint.ConstraintLayout>
+</android.support.design.widget.CoordinatorLayout>
