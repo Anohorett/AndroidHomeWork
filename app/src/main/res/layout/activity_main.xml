@@ -5,13 +5,13 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        tools:context=".DicesActivity">
 
     <Button
             android:text="@string/button"
             android:layout_width="118dp"
             android:layout_height="51dp"
-            android:id="@+id/btn"
+            android:id="@+id/launch_btn"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
             android:textColorLink="@color/color" android:layout_marginTop="8dp"
             app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
