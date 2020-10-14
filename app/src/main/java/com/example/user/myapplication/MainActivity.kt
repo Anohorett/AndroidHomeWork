@@ -14,8 +14,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        rollButton = findViewById(R.id.launch_btn)
-        rollButton.setOnClickListener { startNewActivity() }
     }
 
     private fun startNewActivity() {
