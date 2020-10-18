@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.navOptions
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -43,10 +44,24 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val button = view.findViewById<Button>(R.id.button1)
-        button?.setOnClickListener {
-            findNavController().navigate(R.id.secondFragment, null)
+        val options = navOptions {
+            anim {
+                enter = R.anim.fragment_open_enter
+                exit = R.anim.fragment_fade_exit
+                popEnter = R.anim.fragment_fade_enter
+                popExit = R.anim.fragment_close_exit
+
+            }
         }
+
+        view.findViewById<Button>(R.id.button1).setOnClickListener {
+            findNavController().navigate(R.id.secondFragment, null, options)
+        }
+
+        view.findViewById<Button>(R.id.button_with_action)?.setOnClickListener(
+            Navigation.createNavigateOnClickListener(R.id.next_action, null)
+        )
+
     }
 
 
