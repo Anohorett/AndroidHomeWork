@@ -2,9 +2,8 @@ package com.example.user.myapplication
 
 import android.os.Bundle
 import androidx.appcompat.widget.Toolbar
-import androidx.navigation.NavController
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 
 
@@ -20,10 +19,6 @@ class MainActivity : AppCompatActivity() {
 
         val host: NavHostFragment = supportFragmentManager
             .findFragmentById(R.id.my_nav_host_fragment) as NavHostFragment? ?:return
-
-
-
-
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
