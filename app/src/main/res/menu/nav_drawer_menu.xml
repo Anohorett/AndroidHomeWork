@@ -8,7 +8,7 @@
                 android:title="@string/home" />
         <item
                 android:icon="@drawable/dice_1"
-                android:id="@+id/deeplink_test"
+                android:id="@+id/deeplink_dest"
                 android:title="@string/deeplink" />
     </group>
 

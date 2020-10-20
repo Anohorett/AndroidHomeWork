@@ -34,13 +34,13 @@ class HomeFragment : Fragment() {
             }
         }
 
-        /*view.findViewById<Button>(R.id.button1).setOnClickListener {
-            findNavController().navigate(R.id.secondFragment, null, options)
+        view.findViewById<Button>(R.id.navigate_destination_button).setOnClickListener {
+            findNavController().navigate(R.id.flow_step_one_dest, null, options)
         }
 
-        view.findViewById<Button>(R.id.button_with_action)?.setOnClickListener(
+        view.findViewById<Button>(R.id.navigate_action_button)?.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.next_action, null)
-        )*/
+        )
 
     }
 }
