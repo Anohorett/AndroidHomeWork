@@ -17,4 +17,5 @@
     <string name="next_step_button">step two</string>
     <string name="finish_button">finish</string>
     <string name="step_two">stop two</string>
+    <string name="settings">settings</string>
 </resources>
