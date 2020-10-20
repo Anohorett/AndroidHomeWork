@@ -3,30 +3,39 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/nav_graph"
-        app:startDestination="@id/homeFragment">
+        app:startDestination="@id/home_dest">
     <fragment
-            android:id="@+id/homeFragment"
+            android:id="@+id/home_dest"
             android:name="com.example.user.myapplication.HomeFragment"
             android:label="fragment_home"
-            tools:layout="@layout/fragment_home">
-        <action
-                android:id="@+id/action_homeFragment_to_secondFragment"
-                app:destination="@id/secondFragment" />
-    </fragment>
-    <fragment
-            android:id="@+id/firstFragment"
-            android:name="com.example.user.myapplication.FirstFragment"
-            android:label="fragment_first"
-            tools:layout="@layout/fragment_first">
+            tools:layout="@layout/fragment_home"/>
 
-    </fragment>
     <fragment
-            android:id="@+id/secondFragment"
-            android:name="com.example.user.myapplication.SecondFragment"
-            android:label="fragment_second"
-            tools:layout="@layout/fragment_second">
+            android:id="@+id/flow_step_one_dest"
+            android:name="com.example.user.myapplication.FlowStepFragment"
+            android:label="fragment_flow_step_one"
+            tools:layout="@layout/fragment_flow_step_one" >
+        <argument
+                android:name="flowStepNumber"
+                app:argType="integer"
+                android:defaultValue="1" />
         <action
                 android:id="@+id/next_action"
-                app:destination="@id/secondFragment" />
+                app:destination="@id/flow_step_two_dest" />
     </fragment>
+
+    <fragment
+            android:id="@+id/flow_step_two_dest"
+            android:name="com.example.user.myapplication.FlowStepFragment"
+            android:label="fragment_flow_step_two"
+            tools:layout="@layout/fragment_flow_step_two" >
+        <argument
+                android:name="flowStepNumber"
+                app:argType="integer"
+                android:defaultValue="2" />
+        <action
+                android:id="@+id/next_action"
+                app:popUpTo="@id/home_dest" />
+    </fragment>
+
 </navigation>

@@ -13,4 +13,8 @@
     <string name="navigate_destination_button">Navigate destination button</string>
     <string name="home">Home</string>
     <string name="deeplink">deeplink</string>
+    <string name="step_one">step one</string>
+    <string name="next_step_button">step two</string>
+    <string name="finish_button">finish</string>
+    <string name="step_two">stop two</string>
 </resources>
