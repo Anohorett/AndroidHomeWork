@@ -18,4 +18,5 @@
     <string name="finish_button">finish</string>
     <string name="step_two">stop two</string>
     <string name="settings">settings</string>
+    <string name="settings_fragment_text">Settings Fragment</string>
 </resources>

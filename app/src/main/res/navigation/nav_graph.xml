@@ -45,5 +45,10 @@
                 android:id="@+id/next_action"
                 app:popUpTo="@id/home_dest" />
     </fragment>
+    <fragment
+            android:id="@+id/settings_dest"
+            android:name="com.example.user.myapplication.SettingsFragment"
+            android:label="fragment_settings"
+            tools:layout="@layout/fragment_settings" />
 
 </navigation>

@@ -10,6 +10,10 @@
                 android:icon="@drawable/dice_1"
                 android:id="@+id/deeplink_dest"
                 android:title="@string/deeplink" />
+        <item
+                android:icon="@drawable/dice_1"
+                android:id="@+id/settings_dest"
+                android:title="@string/settings" />
     </group>
 
 </menu>
