@@ -19,4 +19,6 @@
     <string name="step_two">stop two</string>
     <string name="settings">settings</string>
     <string name="settings_fragment_text">Settings Fragment</string>
+    <string name="deep_link_instructions">deep link instructions</string>
+    <string name="send_deep_link_notification_button">send</string>
 </resources>

@@ -48,7 +48,12 @@
     <fragment
             android:id="@+id/settings_dest"
             android:name="com.example.user.myapplication.SettingsFragment"
-            android:label="fragment_settings"
+            android:label="settings_dest"
             tools:layout="@layout/fragment_settings" />
+    <fragment
+            android:id="@+id/deeplink_dest"
+            android:name="com.example.user.myapplication.DeepLinkFragment"
+            android:label="deepLink_dest"
+            tools:layout="@layout/fragment_deep_link" />
 
 </navigation>
