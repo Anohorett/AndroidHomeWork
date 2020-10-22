@@ -9,8 +9,12 @@ import android.widget.Button
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
+import com.example.user.myapplication.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
+
+    private var _binding: FragmentHomeBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -18,7 +22,9 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         setHasOptionsMenu(true)
-        return inflater.inflate(R.layout.fragment_home, container, false)
+
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -34,13 +40,17 @@ class HomeFragment : Fragment() {
             }
         }
 
-        view.findViewById<Button>(R.id.navigate_destination_button).setOnClickListener {
-            findNavController().navigate(R.id.flow_step_one_dest, null, options)
-        }
-
-        view.findViewById<Button>(R.id.navigate_action_button)?.setOnClickListener(
+        binding.navigateActionButton.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.next_action, null)
         )
 
+        binding.navigateDestinationButton.setOnClickListener {
+            findNavController().navigate(R.id.flow_step_one_dest, null, options)
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
