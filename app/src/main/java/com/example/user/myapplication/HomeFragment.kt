@@ -6,14 +6,26 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleObserver
+import androidx.lifecycle.OnLifecycleEvent
+
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 import com.example.user.myapplication.databinding.FragmentHomeBinding
 import timber.log.Timber
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), LifecycleObserver {
+
+    init {
+        lifecycle.addObserver(this)
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_START)
+    fun log() {
+        Timber.i("\tOnLifecycleEvent")
+    }
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
@@ -92,5 +104,11 @@ class HomeFragment : Fragment() {
     override fun onDetach() {
         super.onDetach()
         Timber.i("\tonDetach")
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+
+        Timber.i("onSaveInstanceState")
     }
 }
