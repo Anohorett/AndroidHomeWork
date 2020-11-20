@@ -8,4 +8,8 @@
         android:id="@+id/deeplink_dest"
         android:icon="@android:drawable/ic_menu_directions"
         android:title="@string/deeplink" />
+    <item
+        android:id="@+id/game_dest"
+        android:icon="?attr/actionModeSelectAllDrawable"
+        android:title="GuessWord" />
 </menu>

@@ -60,5 +60,9 @@
             android:defaultValue="Android!"/>
         <deepLink app:uri="www.example.com/{myarg}"/>
     </fragment>
+    <fragment
+            android:id="@+id/game_dest"
+            android:name="com.example.user.myapplication.GameFragment"
+            android:label="GameFragment" />
 
 </navigation>
