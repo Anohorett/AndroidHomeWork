@@ -7,7 +7,6 @@
     <string name="second_fragment">second fragment</string>
     <string name="go_to">Go to</string>
     <string name="with_action">with action</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="navigate_action_button">Navigate Action Button</string>
     <string name="navigate_destination_button">Navigate destination button</string>
@@ -21,4 +20,13 @@
     <string name="settings_fragment_text">Settings Fragment</string>
     <string name="deep_link_instructions">deep link instructions</string>
     <string name="send_deep_link_notification_button">send</string>
+    <string name="end_game">End Game</string>
+    <string name="got_it">Got It</string>
+    <string name="word_is">"Word is "</string>
+    <string name="skip">Skip</string>
+    <string name="play_again">Play Again</string>
+    <string name="you_scored">you_scored</string>
+    <string name="get_ready">get ready</string>
+    <string name="play_button">play button</string>
+    <string name="title_text">title text</string>
 </resources>
