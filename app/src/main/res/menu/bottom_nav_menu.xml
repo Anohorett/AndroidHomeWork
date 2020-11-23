@@ -9,7 +9,7 @@
         android:icon="@android:drawable/ic_menu_directions"
         android:title="@string/deeplink" />
     <item
-        android:id="@+id/game_dest"
+        android:id="@+id/tile_dest"
         android:icon="?attr/actionModeSelectAllDrawable"
         android:title="GuessWord" />
 </menu>
