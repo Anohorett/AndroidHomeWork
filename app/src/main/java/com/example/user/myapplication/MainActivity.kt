@@ -14,6 +14,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
+import timber.log.Timber
 
 
 class MainActivity : AppCompatActivity() {
@@ -21,6 +22,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Timber.i("OnCreate\t V")
         setContentView(R.layout.navigation_activity)
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
@@ -85,5 +87,35 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSupportNavigateUp(): Boolean {
         return findNavController(R.id.my_nav_host_fragment).navigateUp(appBarConfiguration)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Timber.i("OnStart\t >")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Timber.i("onResume\t >>")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Timber.i("onPause\t ||")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Timber.i("onDestroy\t X")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        Timber.i("onRestart\t |>")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Timber.i("OnStop\t []")
     }
 }

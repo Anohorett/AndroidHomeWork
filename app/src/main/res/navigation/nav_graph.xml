@@ -1,64 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/nav_graph"
-        app:startDestination="@id/home_dest">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/home_dest">
     <fragment
-            android:id="@+id/home_dest"
-            android:name="com.example.user.myapplication.HomeFragment"
-            android:label="fragment_home"
-            tools:layout="@layout/fragment_home">
+        android:id="@+id/home_dest"
+        android:name="com.example.user.myapplication.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home">
         <action
-                android:id="@+id/next_action"
-                app:destination="@id/flow_step_one_dest"
-                app:enterAnim="@anim/nav_default_enter_anim"
-                app:exitAnim="@anim/nav_default_exit_anim"
-                app:popEnterAnim="@anim/fragment_open_enter"
-                app:popExitAnim="@anim/fragment_open_exit" />
+            android:id="@+id/next_action"
+            app:destination="@id/flow_step_one_dest"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/fragment_open_enter"
+            app:popExitAnim="@anim/fragment_open_exit" />
     </fragment>
 
     <fragment
-            android:id="@+id/flow_step_one_dest"
-            android:name="com.example.user.myapplication.FlowStepFragment"
-            android:label="fragment_flow_step_one"
-            tools:layout="@layout/fragment_flow_step_one" >
+        android:id="@+id/flow_step_one_dest"
+        android:name="com.example.user.myapplication.FlowStepFragment"
+        android:label="fragment_flow_step_one"
+        tools:layout="@layout/fragment_flow_step_one">
         <argument
-                android:name="flowStepNumber"
-                app:argType="integer"
-                android:defaultValue="1" />
+            android:name="flowStepNumber"
+            android:defaultValue="1"
+            app:argType="integer" />
         <action
-                android:id="@+id/next_action"
-                app:destination="@id/flow_step_two_dest" />
+            android:id="@+id/next_action"
+            app:destination="@id/flow_step_two_dest" />
     </fragment>
 
     <fragment
-            android:id="@+id/flow_step_two_dest"
-            android:name="com.example.user.myapplication.FlowStepFragment"
-            android:label="fragment_flow_step_two"
-            tools:layout="@layout/fragment_flow_step_two" >
+        android:id="@+id/flow_step_two_dest"
+        android:name="com.example.user.myapplication.FlowStepFragment"
+        android:label="fragment_flow_step_two"
+        tools:layout="@layout/fragment_flow_step_two">
         <argument
-                android:name="flowStepNumber"
-                app:argType="integer"
-                android:defaultValue="2" />
+            android:name="flowStepNumber"
+            android:defaultValue="2"
+            app:argType="integer" />
         <action
-                android:id="@+id/next_action"
-                app:popUpTo="@id/home_dest" />
+            android:id="@+id/next_action"
+            app:popUpTo="@id/home_dest" />
     </fragment>
     <fragment
-            android:id="@+id/settings_dest"
-            android:name="com.example.user.myapplication.SettingsFragment"
-            android:label="settings_dest"
-            tools:layout="@layout/fragment_settings" />
+        android:id="@+id/settings_dest"
+        android:name="com.example.user.myapplication.SettingsFragment"
+        android:label="settings_dest"
+        tools:layout="@layout/fragment_settings" />
     <fragment
-            android:id="@+id/deeplink_dest"
-            android:name="com.example.user.myapplication.DeepLinkFragment"
-            android:label="deepLink_dest"
-            tools:layout="@layout/fragment_deep_link">
+        android:id="@+id/deeplink_dest"
+        android:name="com.example.user.myapplication.DeepLinkFragment"
+        android:label="deepLink_dest"
+        tools:layout="@layout/fragment_deep_link">
         <argument
             android:name="myarg"
-            android:defaultValue="Android!"/>
-        <deepLink app:uri="www.example.com/{myarg}"/>
+            android:defaultValue="Android!" />
+        <deepLink app:uri="www.example.com/{myarg}" />
+    </fragment>
+    <fragment
+        android:id="@+id/tile_dest"
+        android:name="com.example.user.myapplication.TileFragment"
+        android:label="tile_dest"
+        tools:layout="@layout/fragment_tile">
+        <action
+            android:id="@+id/action_tile_to_game"
+            app:destination="@id/game_dest"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_to_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/game_dest"
+        android:name="com.example.user.myapplication.GameFragment"
+        android:label="GameFragment"
+        tools:layout="@layout/fragment_game">
+        <action
+            android:id="@+id/action_game_dest_to_score_dest"
+            app:destination="@id/score_dest"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_to_left"
+            app:popUpTo="@id/tile_dest" />
+    </fragment>
+    <fragment
+        android:id="@+id/score_dest"
+        android:name="com.example.user.myapplication.ScoreFragment"
+        android:label="score_dest"
+        tools:layout="@layout/fragment_score">
+        <action
+            android:id="@+id/action_restart"
+            app:destination="@id/game_dest"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_to_left"
+            app:popUpTo="@id/tile_dest" />
+        <argument
+            android:name="score"
+            android:defaultValue="0"
+            app:argType="integer" />
     </fragment>
 
 </navigation>
