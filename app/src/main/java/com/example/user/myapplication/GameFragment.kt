@@ -6,6 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import com.example.user.myapplication.data.GameViewModel
 import com.example.user.myapplication.databinding.FragmentGameBinding
 
 class GameFragment : Fragment() {
@@ -14,12 +17,15 @@ class GameFragment : Fragment() {
     private var score = 0
     private lateinit var wordList: MutableList<String>
     private lateinit var binding: FragmentGameBinding
+    private lateinit var viewModel: GameViewModel
 
 
     override fun onCreateView(
         inflater: LayoutInflater,container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        viewModel = ViewModelProvider(this).get(GameViewModel::class.java)
 
         binding = DataBindingUtil.inflate(
             inflater,
