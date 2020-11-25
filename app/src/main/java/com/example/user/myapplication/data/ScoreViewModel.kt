@@ -1,11 +1,18 @@
 package com.example.user.myapplication.data
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import timber.log.Timber
 
 class ScoreViewModel(finalScore: Int): ViewModel() {
-    val score = finalScore
+    private val _score = MutableLiveData<Int>()
+    val score: LiveData<Int>
+        get() = _score
+
+
     init {
+        _score.value = finalScore
         Timber.i("FinalScore is $finalScore")
     }
 }

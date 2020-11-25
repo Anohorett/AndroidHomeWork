@@ -65,8 +65,12 @@ class GameViewModel : ViewModel() {
         nextWord()
     }
 
-    fun onGameFinish() {
+    private fun onGameFinish() {
         _eventGameFinish.value = true
+    }
+
+    fun onGameFinishComplete() {
+        _eventGameFinish.value = false
     }
 
     private fun nextWord() {

@@ -31,8 +31,9 @@ class ScoreFragment : Fragment() {
         viewModelFactory = ScoreViewModelFactory(ScoreFragmentArgs.fromBundle(arguments!!).score)
         viewModel = ViewModelProvider(this, viewModelFactory)
             .get(ScoreViewModel::class.java)
-
-        binding.scoreText.text = viewModel.score.toString()
+        viewModel.score.observe(viewLifecycleOwner, { newScore ->
+            binding.scoreText.text = newScore.toString()
+        })
 
         return binding.root
     }
