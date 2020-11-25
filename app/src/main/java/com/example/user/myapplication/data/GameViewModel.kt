@@ -1,15 +1,19 @@
 package com.example.user.myapplication.data
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import timber.log.Timber
 
 class GameViewModel : ViewModel() {
 
-    var word = ""
-    var score = 0
+    val word = MutableLiveData<String>()
+    val score = MutableLiveData<Int>()
     private lateinit var wordList: MutableList<String>
 
     init {
+
+        word.value = ""
+        score.value = 0
         resetList()
         nextWord()
     }
@@ -43,17 +47,17 @@ class GameViewModel : ViewModel() {
     }
 
     fun onSkip() {
-        score--
+        score.value = (score.value)?.minus(1)
         nextWord()
     }
 
     fun onCorrect() {
-        score++
+        score.value = (score.value)?.plus(1)
         nextWord()
     }
 
     private fun nextWord() {
-        if (wordList.isNotEmpty()) word = wordList.removeAt(0)
+        if (wordList.isNotEmpty()) word.value = wordList.removeAt(0)
     }
 
     override fun onCleared() {
