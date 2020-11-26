@@ -29,4 +29,6 @@
     <string name="get_ready">get ready</string>
     <string name="play_button">play button</string>
     <string name="title_text">title text</string>
+    <string name="quote_format">\"%s\"</string>
+    <string name="score_format">Current score: %d</string>
 </resources>
