@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.fragment.findNavController
 import com.example.user.myapplication.databinding.FragmentTileBinding
 
 class TileFragment : Fragment() {
@@ -22,6 +23,10 @@ class TileFragment : Fragment() {
             container,
             false
         )
+
+        binding.playGameButton.setOnClickListener{
+            findNavController().navigate(TileFragmentDirections.actionTileToGame())
+        }
 
         return binding.root
     }

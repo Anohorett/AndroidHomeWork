@@ -5,22 +5,23 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.NavHostFragment
+import com.example.user.myapplication.data.GameViewModel
 import com.example.user.myapplication.databinding.FragmentGameBinding
 
 class GameFragment : Fragment() {
 
-    private var word = ""
-    private var score = 0
-    private lateinit var wordList: MutableList<String>
     private lateinit var binding: FragmentGameBinding
-
+    private lateinit var viewModel: GameViewModel
 
     override fun onCreateView(
-        inflater: LayoutInflater,container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         binding = DataBindingUtil.inflate(
             inflater,
             R.layout.fragment_game,
@@ -28,65 +29,22 @@ class GameFragment : Fragment() {
             false
         )
 
-        resetList()
-        nextWord()
+        viewModel = ViewModelProvider(this).get(GameViewModel::class.java)
 
-        binding.correctButton.setOnClickListener{onCorrect()}
-        binding.skipButton.setOnClickListener{onSkip()}
+        viewModel.eventGameFinish.observe(viewLifecycleOwner, { hasFinished ->
+            if (hasFinished) gameFinished()
+        })
 
+        binding.gameViewModel = viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
         return binding.root
     }
 
-    private fun resetList() {
-        wordList = mutableListOf(
-            "queen",
-            "hospital",
-            "basketball",
-            "cat",
-            "change",
-            "snail",
-            "soup",
-            "calendar",
-            "sad",
-            "desk",
-            "guitar",
-            "home",
-            "railway",
-            "zebra",
-            "jelly",
-            "car",
-            "crow",
-            "trade",
-            "bag",
-            "roll",
-            "bubble"
-        )
-
-        wordList.shuffle()
+    private fun gameFinished() {
+        Toast.makeText(activity, "Game has just finished", Toast.LENGTH_SHORT).show()
+        val action = GameFragmentDirections.actionGameDestToScoreDest()
+        action.score = viewModel.score.value ?: 0
+        NavHostFragment.findNavController(this).navigate(action)
+        viewModel.onGameFinishComplete()
     }
-
-    private fun onSkip() {
-        score--
-        nextWord()
-    }
-
-    private fun onCorrect() {
-        score++
-        nextWord()
-    }
-
-    private fun nextWord() {
-        if(wordList.isNotEmpty()) word = wordList.removeAt(0)
-        updateWordText()
-        updateScoreText()
-    }
-
-    private fun updateWordText() {
-        binding.wordText.text = word
-    }
-
-    private fun updateScoreText() {
-        binding.scoreText.text = score.toString()
-    }
-
 }
