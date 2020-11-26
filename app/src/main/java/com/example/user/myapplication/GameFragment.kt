@@ -41,23 +41,8 @@ class GameFragment : Fragment() {
             if (hasFinished) gameFinished()
         })
 
-        binding.correctButton.setOnClickListener { onCorrect() }
-        binding.skipButton.setOnClickListener { onSkip() }
-        binding.endGameButton.setOnClickListener { onEndGame() }
-
+        binding.gameViewModel = viewModel
         return binding.root
-    }
-
-    private fun onSkip() {
-        viewModel.onSkip()
-    }
-
-    private fun onCorrect() {
-        viewModel.onCorrect()
-    }
-
-    private fun onEndGame() {
-        gameFinished()
     }
 
     private fun gameFinished() {
@@ -67,5 +52,4 @@ class GameFragment : Fragment() {
         NavHostFragment.findNavController(this).navigate(action)
         viewModel.onGameFinishComplete()
     }
-
 }

@@ -29,8 +29,6 @@ class ScoreFragment : Fragment() {
             false
         )
 
-        binding.playAgainButton.setOnClickListener { viewModel.onPlayAgainComplete() }
-
         viewModelFactory = ScoreViewModelFactory(ScoreFragmentArgs.fromBundle(arguments!!).score)
         viewModel = ViewModelProvider(this, viewModelFactory)
             .get(ScoreViewModel::class.java)
@@ -45,6 +43,7 @@ class ScoreFragment : Fragment() {
             }
         })
 
+        binding.scoreViewModel = viewModel
         return binding.root
     }
 }
