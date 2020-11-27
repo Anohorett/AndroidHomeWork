@@ -48,16 +48,11 @@ class DicesActivity : AppCompatActivity() {
         }
     }
 
-    fun showMessage(v: View) {
-        Snackbar.make(coordinatorLayout,"${double(2)}", Snackbar.LENGTH_LONG)
-            .show()
-    }
-
-    fun outInConsole(v: View){
+    fun outInConsole(){
         textConsole.text = "${double(2)}"
     }
 
-    fun clearConsole(v: View) {
+    fun clearConsole() {
         textConsole.text = ""
     }
 

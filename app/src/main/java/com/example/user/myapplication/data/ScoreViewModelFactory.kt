@@ -9,6 +9,6 @@ class ScoreViewModelFactory(private val finalScore: Int) : ViewModelProvider.Fac
         if (modelClass.isAssignableFrom(ScoreViewModel::class.java)) {
             return ScoreViewModel(finalScore) as T
         }
-        throw IllegalArgumentException("Unknow ViewModel class")
+        throw IllegalArgumentException("Unknown ViewModel class")
     }
 }
