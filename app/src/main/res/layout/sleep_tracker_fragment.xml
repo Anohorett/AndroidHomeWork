@@ -6,6 +6,9 @@
 
     <data>
 
+        <variable
+            name="sleepTrackerViewModel"
+            type="com.example.user.myapplication.sleeptracker.SleepTrackerViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
