@@ -1,10 +1,7 @@
 package com.example.user.myapplication.sleeptracker
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.example.user.myapplication.database.SleepDatabaseDao
 import com.example.user.myapplication.database.SleepNight
 import com.example.user.myapplication.formatNights
@@ -20,6 +17,10 @@ class SleepTrackerViewModel(
     val nightString = Transformations.map(nights) { nights ->
         formatNights(nights, application.resources)
     }
+
+    private val _navigateToSleepQuality = MutableLiveData<SleepNight>()
+    val navigateToSleepQuality: LiveData<SleepNight>
+        get() = _navigateToSleepQuality
 
     init {
         initializeTonight()
@@ -52,6 +53,7 @@ class SleepTrackerViewModel(
             val oldNight = tonight.value ?: return@launch
             oldNight.endTimeMilli = System.currentTimeMillis()
             update(oldNight)
+            _navigateToSleepQuality.value = oldNight
         }
     }
 
@@ -62,6 +64,10 @@ class SleepTrackerViewModel(
         }
     }
 
+    fun doneNavigating() {
+        _navigateToSleepQuality.value = null
+    }
+
     private suspend fun update(night: SleepNight) {
         database.update(night)
     }
@@ -70,7 +76,7 @@ class SleepTrackerViewModel(
         database.insert(night)
     }
 
-    private  suspend fun clear() {
+    private suspend fun clear() {
         database.clear()
     }
 

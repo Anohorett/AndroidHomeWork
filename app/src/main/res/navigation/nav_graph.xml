@@ -111,22 +111,27 @@
         android:id="@+id/sleepTrackerFragment"
         android:name="com.example.user.myapplication.sleeptracker.SleepTrackerFragment"
         android:label="sleep_tracker_fragment"
-        tools:layout="@layout/sleep_tracker_fragment" >
+        tools:layout="@layout/sleep_tracker_fragment">
         <action
             android:id="@+id/action_sleepTrackerFragment_to_sleepQualityFragment"
-            app:destination="@id/sleepQualityFragment" />
+            app:destination="@id/sleepQualityFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:popEnterAnim="@anim/slide_to_left" />
     </fragment>
     <fragment
         android:id="@+id/sleepQualityFragment"
         android:name="com.example.user.myapplication.sleepquality.SleepQualityFragment"
-        tools:layout="@layout/sleep_quality_fragment"
-        android:label="SleepQualityFragment" >
+        android:label="SleepQualityFragment"
+        tools:layout="@layout/sleep_quality_fragment">
         <action
             android:id="@+id/action_sleepQualityFragment_to_sleepTrackerFragment"
             app:destination="@id/sleepTrackerFragment"
+            app:launchSingleTop="true"
             app:popUpTo="@id/sleepTrackerFragment"
-            app:popUpToInclusive="true"
-            app:launchSingleTop="true" />
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="sleepNightKey"
+            app:argType="long" />
     </fragment>
 
 </navigation>

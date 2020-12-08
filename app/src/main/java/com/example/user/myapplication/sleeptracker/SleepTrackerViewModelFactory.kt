@@ -15,6 +15,6 @@ class SleepTrackerViewModelFactory(
         if (modelClass.isAssignableFrom(SleepTrackerViewModel::class.java)) {
             return SleepTrackerViewModel(dataSource, application) as T
         }
-        throw IllegalArgumentException("unknown ViewModel class")
+        throw IllegalArgumentException("Unknown ViewModel class")
     }
 }
