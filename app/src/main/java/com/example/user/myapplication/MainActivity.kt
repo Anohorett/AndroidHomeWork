@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
         setupBottomNavMenu(navController)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            val dest: String = try {
+            try {
                 resources.getResourceName(destination.id)
             } catch (e: Resources.NotFoundException) {
                 destination.id.toString()
